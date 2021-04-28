@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Movievio.iml" filepath="$PROJECT_DIR$/.idea/modules/Movievio.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Movievio.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Movievio.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Movievio.buildSrc.iml" filepath="$PROJECT_DIR$/.idea/modules/Movievio.buildSrc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/data/Movievio.data.iml" filepath="$PROJECT_DIR$/.idea/modules/data/Movievio.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/Movievio.domain.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/Movievio.domain.iml" />
+    </modules>
+  </component>
+</project>

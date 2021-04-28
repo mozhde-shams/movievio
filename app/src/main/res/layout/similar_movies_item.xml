@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="movieItem"
+            type="com.example.movievio.model.MovieItem" />
+
+        <variable
+            name="clickListener"
+            type="com.example.movievio.utils.recyclerview.ItemClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="@dimen/oneHundredFiftyDP"
+        android:layout_height="@dimen/twoHundredFiftyDP"
+        android:orientation="vertical">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViwMovieImageHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fiveDP"
+            android:onClick="@{() ->clickListener.onClick(movieItem)}"
+            app:cardCornerRadius="@dimen/fifteenDP"
+            app:cardElevation="@dimen/fiveDP">
+
+            <ImageView
+                android:id="@+id/imgViwPoster"
+                android:layout_width="@dimen/oneHundredFiftyDP"
+                android:layout_height="@dimen/twoHundredDP"
+                android:scaleType="centerCrop"
+                app:posterPath="@{movieItem.poster_path}" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/txtViwTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/fiveDP"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@{movieItem.title}"
+            android:textStyle="normal" />
+
+
+    </LinearLayout>
+
+</layout>

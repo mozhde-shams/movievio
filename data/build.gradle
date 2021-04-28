@@ -1,0 +1,58 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion Versions.compileSdkVersion
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Versions.jvmTarget
+    }
+}
+
+dependencies {
+    //domainModule Region
+    implementation project(path: ':domain')
+    //kotlin Region
+    implementation Dependencies.kotlinStandardLibrary
+    implementation Dependencies.core_ktxLibrary
+    //UI Region
+    implementation Dependencies.appcompatLibrary
+    implementation Dependencies.materialLibrary
+    //retrofit Region
+    implementation Dependencies.retrofitLibrary
+    implementation Dependencies.gsonLibrary
+    implementation Dependencies.adapterRxJavaLibrary
+    implementation Dependencies.okhttpLibrary
+    implementation Dependencies.logging_interceptorLibrary
+    //dagger Region
+    implementation Dependencies.daggerLibrary
+    kapt Dependencies.dagger_compilerLibrary
+    //test Region
+    testImplementation Dependencies.junitLibrary
+    androidTestImplementation Dependencies.androidx_junitLibrary
+    androidTestImplementation Dependencies.espresso_coreLibrary
+}

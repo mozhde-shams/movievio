@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="movieListViewModel"
+            type="com.example.movievio.movieList.MovieListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".movieList.MovieListFragment">
+
+        <HorizontalScrollView
+            android:id="@+id/horizontalScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/fiveSP"
+            android:scrollbars="none">
+
+            <com.google.android.material.chip.ChipGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:checkedChip="@id/chipPopularMoviesList"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipPopularMoviesList"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> movieListViewModel.getPopularMovies()}"
+                    android:text="@string/popular"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="@dimen/fifteenSP"
+                    app:chipBackgroundColor="@color/bg_chip_color"
+                    app:chipCornerRadius="@dimen/tenDP"
+                    app:chipEndPadding="@dimen/sevenDP"
+                    app:chipStartPadding="@dimen/sevenDP"
+                    app:chipStrokeColor="@color/purple_700"
+                    app:chipStrokeWidth="@dimen/twoDP" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipTopRatedMoviesList"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> movieListViewModel.getTopRatedMovies()}"
+                    android:text="@string/topRated"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="@dimen/fifteenSP"
+                    app:chipBackgroundColor="@color/bg_chip_color"
+                    app:chipCornerRadius="@dimen/tenDP"
+                    app:chipEndPadding="@dimen/sevenDP"
+                    app:chipStartPadding="@dimen/sevenDP"
+                    app:chipStrokeColor="@color/purple_700"
+                    app:chipStrokeWidth="@dimen/twoDP" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipNowPlayingMoviesList"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> movieListViewModel.getNowPlayingMovies()}"
+                    android:text="@string/nowPlaying"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="@dimen/fifteenSP"
+                    app:chipBackgroundColor="@color/bg_chip_color"
+                    app:chipCornerRadius="@dimen/tenDP"
+                    app:chipEndPadding="@dimen/sevenDP"
+                    app:chipStartPadding="@dimen/sevenDP"
+                    app:chipStrokeColor="@color/purple_700"
+                    app:chipStrokeWidth="@dimen/twoDP" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipGetUpcomingMoviesList"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:onClick="@{() -> movieListViewModel.getUpcomingMovies()}"
+                    android:text="@string/getUpcoming"
+                    android:textColor="@color/chip_text_color"
+                    android:textSize="@dimen/fifteenSP"
+                    app:chipBackgroundColor="@color/bg_chip_color"
+                    app:chipCornerRadius="@dimen/tenDP"
+                    app:chipEndPadding="@dimen/sevenDP"
+                    app:chipStartPadding="@dimen/sevenDP"
+                    app:chipStrokeColor="@color/purple_700"
+                    app:chipStrokeWidth="@dimen/twoDP" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+        </HorizontalScrollView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViwMovieList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</layout>

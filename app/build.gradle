@@ -1,0 +1,80 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+    id 'kotlin-kapt'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion Versions.compileSdkVersion
+    buildToolsVersion Versions.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.example.movievio"
+        minSdkVersion Versions.minSdkVersion
+        targetSdkVersion Versions.targetSdkVersion
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = Versions.jvmTarget
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+}
+
+dependencies {
+    //domainModule Region
+    implementation project(path: ':domain')
+    //dataModule Region
+    implementation project(path: ':data')
+    //kotlin Region
+    implementation Dependencies.kotlinStandardLibrary
+    implementation Dependencies.core_ktxLibrary
+    //UI Region
+    implementation Dependencies.appcompatLibrary
+    implementation Dependencies.materialLibrary
+    implementation Dependencies.constraintLayoutLibrary
+    //Dagger Region
+    implementation Dependencies.daggerLibrary
+    kapt Dependencies.dagger_compilerLibrary
+    implementation Dependencies.dagger_androidLibrary
+    implementation Dependencies.dagger_android_supportLibrary
+    annotationProcessor Dependencies.dagger_android_processorAnnotation
+    kapt Dependencies.dagger_android_processorKapt
+    //Rx Region
+    implementation Dependencies.rxjavaLibrary
+    implementation Dependencies.rxAndroidLibrary
+    //lifecycle Region
+    implementation Dependencies.lifecycle_extensionsLibrary
+    //navigation Region
+    implementation Dependencies.navigation_fragmentLibaray
+    implementation Dependencies.navigation_ui_ktxLibrary
+    implementation Dependencies.legacy_supportLibrary
+    //picasso Region
+    implementation Dependencies.picassoLibrary
+    //paging Region
+    implementation Dependencies.paging_runtimeLibrary
+    implementation Dependencies.paging_rxjavaLibrary
+    //test Region
+    testImplementation Dependencies.junitLibrary
+    androidTestImplementation Dependencies.androidx_junitLibrary
+    androidTestImplementation Dependencies.espresso_coreLibrary
+}

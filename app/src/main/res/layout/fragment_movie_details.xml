@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movieDetailViewModel"
+            type="com.example.movievio.movieDetail.MovieDetailViewModel" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:context=".movieDetail.MovieDetailsFragment">
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:id="@+id/imgViwPoster"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/treeHundredDP"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                app:posterPath="@{movieDetailViewModel.moviePosterPathLiveData}"
+                app:shapeAppearanceOverlay="@style/circleImageView" />
+
+            <TextView
+                android:id="@+id/txtViwTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/imgViwPoster"
+                android:layout_marginHorizontal="@dimen/fifteenDP"
+                android:layout_marginTop="@dimen/tenDP"
+                android:fontFamily="sans-serif-black"
+                android:text="@{movieDetailViewModel.movieTitleLiveData}"
+                android:textColor="@color/black"
+                android:textSize="@dimen/twentyFiveSP"
+                android:textStyle="bold"
+                tools:text="Title" />
+
+            <TextView
+                android:id="@+id/txtViwGenres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtViwTitle"
+                android:layout_marginHorizontal="@dimen/fifteenDP"
+                android:layout_marginTop="@dimen/fiveDP"
+                android:layout_marginBottom="@dimen/fiveDP"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{movieDetailViewModel.movieGenresLiveData}"
+                android:textColor="@color/silver"
+                android:textSize="@dimen/fifteenSP"
+                tools:text="Genre" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/txtViwReleaseDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtViwGenres"
+                android:layout_marginStart="@dimen/fifteenDP"
+                android:layout_marginTop="@dimen/fiveDP"
+                android:layout_marginBottom="@dimen/tenDP"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:text="@{movieDetailViewModel.movieReleaseDateLiveData}"
+                android:textColor="@color/silver"
+                android:textSize="@dimen/fifteenSP"
+                app:drawableStartCompat="@drawable/ic_date_range"
+                tools:text="2021" />
+
+            <TextView
+                android:id="@+id/txtViwVoteAverage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtViwGenres"
+                android:layout_marginHorizontal="@dimen/fiveDP"
+                android:layout_marginTop="@dimen/fiveDP"
+                android:layout_marginBottom="@dimen/tenDP"
+                android:layout_toEndOf="@id/txtViwReleaseDate"
+                android:gravity="center"
+                android:text="@{Double.toString(movieDetailViewModel.movieVoteAverageLiveData)}"
+                android:textColor="@color/silver"
+                android:textSize="@dimen/fifteenSP"
+                app:drawableStartCompat="@drawable/ic_star_rate"
+                tools:text="1.6" />
+
+            <TextView
+                android:id="@+id/txtViwOverview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtViwReleaseDate"
+                android:layout_marginHorizontal="@dimen/fifteenDP"
+                android:layout_marginVertical="@dimen/tenDP"
+                android:fontFamily="sans-serif-medium"
+                android:text="@{movieDetailViewModel.movieOverviewLiveData}"
+                android:textColor="@color/dimGray"
+                android:textSize="@dimen/fifteenSP"
+                tools:text="Overview" />
+
+            <TextView
+                android:id="@+id/txtViwSimilarMovies"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtViwOverview"
+                android:layout_marginHorizontal="@dimen/fifteenDP"
+                android:layout_marginVertical="@dimen/tenDP"
+                android:fontFamily="sans-serif-black"
+                android:text="@string/similarMovies"
+                android:textColor="@color/black"
+                android:textSize="@dimen/fifteenSP"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerViwSimilarMovies"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/twoHundredFiftyDP"
+                android:layout_below="@id/txtViwSimilarMovies"
+                android:layout_marginBottom="@dimen/tenDP" />
+
+            <LinearLayout
+                android:id="@+id/linLayoutActionContainer"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/sixtyDP"
+                android:layout_below="@id/recyclerViwSimilarMovies"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal"
+                android:weightSum="1">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".3"
+                    android:padding="@dimen/twentyDP"
+                    android:src="@android:drawable/ic_menu_call" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".7"
+                    android:fontFamily="sans-serif-medium"
+                    android:insetBottom="@dimen/zeroDp"
+                    android:text="@string/RateMovie"
+                    android:textAllCaps="false"
+                    android:textSize="@dimen/fifteenSP"
+                    app:shapeAppearanceOverlay="@style/circleButton" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</layout>
