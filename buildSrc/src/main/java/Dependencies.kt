@@ -28,6 +28,10 @@ object Versions {
     const val legacy_support = "1.0.0"
     const val picasso = "2.71828"
     const val paging = "3.0.0-beta01"
+    const val mockito = "3.11.2"
+    const val espresso = "3.3.0"
+    const val dexmaker = "2.28.1"
+    const val core_testing = "2.1.0"
 }
 
 object Dependencies {
@@ -51,6 +55,11 @@ object Dependencies {
     const val androidx_junitLibrary = "androidx.test.ext:junit:${Versions.androidx_junit}"
     const val espresso_coreLibrary =
         "androidx.test.espresso:espresso-core:${Versions.espresso_core}"
+    const val espresso_contrib = "androidx.test.espresso:espresso-contrib:${Versions.espresso}"
+    const val mockito_inline = "org.mockito:mockito-inline:${Versions.mockito}"
+    const val dexmaker = "com.linkedin.dexmaker:dexmaker-mockito:${Versions.dexmaker}"
+    const val core_testing = "androidx.arch.core:core-testing:${Versions.core_testing}"
+
 
     //Gradle Region
     const val gradle = "com.android.tools.build:gradle:${Versions.gradle}"

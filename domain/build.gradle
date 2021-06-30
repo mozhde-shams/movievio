@@ -11,4 +11,6 @@ java {
 dependencies {
     implementation Dependencies.kotlinStandardLibrary
     implementation Dependencies.rxjavaLibrary
+    testImplementation Dependencies.junitLibrary
+    testImplementation Dependencies.mockito_inline
 }

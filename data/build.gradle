@@ -55,4 +55,5 @@ dependencies {
     testImplementation Dependencies.junitLibrary
     androidTestImplementation Dependencies.androidx_junitLibrary
     androidTestImplementation Dependencies.espresso_coreLibrary
+    testImplementation Dependencies.mockito_inline
 }

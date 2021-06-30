@@ -17,7 +17,7 @@ class MovieEntityMapper @Inject constructor() {
             movieListEntity.total_pages
         )
 
-    private fun mapMoviePropertyEntityToDomain(moviePropertyEntity: MoviePropertyEntity) =
+     fun mapMoviePropertyEntityToDomain(moviePropertyEntity: MoviePropertyEntity) =
         MovieProperty(
             moviePropertyEntity.id,
             moviePropertyEntity.poster_path,

@@ -77,4 +77,8 @@ dependencies {
     testImplementation Dependencies.junitLibrary
     androidTestImplementation Dependencies.androidx_junitLibrary
     androidTestImplementation Dependencies.espresso_coreLibrary
+    androidTestImplementation Dependencies.espresso_contrib
+    testImplementation Dependencies.mockito_inline
+    androidTestImplementation Dependencies.dexmaker
+    testImplementation Dependencies.core_testing
 }

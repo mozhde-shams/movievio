@@ -7,7 +7,7 @@ import com.example.movievio.R
 
 class GenericAdapter<itemView : Any>(
     diffCallback: DiffUtil.ItemCallback<itemView>,
-    private val clickListener: Any,
+    private val clickListener: ItemClickListener,
     private val viewType: Int
 ) : PagingDataAdapter<itemView, SealedViewHolder>(diffCallback) {
 

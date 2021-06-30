@@ -31,7 +31,7 @@ class MovieDetailViewModel @Inject constructor(
     val movieGenresLiveData by lazy { MutableLiveData<String>() }
     val similarMovies = MediatorLiveData<PagingData<MovieItem>>()
 
-    private fun getMovieDetails(movie_id: Int, api_key: String, language: String) {
+    fun getMovieDetails(movie_id: Int, api_key: String, language: String) {
         val getMovieDetailsObserver = object : DefaultSingleObserver<MovieDetail>() {
             override fun onSuccess(t: MovieDetail) {
                 val movieDetailItem = movieItemMapper.mapMovieDetailToPresentation(t)
